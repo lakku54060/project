@@ -1,0 +1,368 @@
+﻿@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Jost:wght@300;400;500;600;700&display=swap");
+
+/* â”€â”€â”€ Reset scoped to register page â”€â”€â”€ */
+.register-shared-page,
+.register-shared-page * {
+  box-sizing: border-box;
+}
+
+.register-shared-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  font-family: 'Jost', sans-serif;
+}
+
+/* â”€â”€â”€ CSS vars â”€â”€â”€ */
+.register-shared-main,
+.register-shared-card {
+  --black:      #111;
+  --orange:     #e8571a;
+  --orange-dk:  #c94a12;
+  --gray:       #888;
+  --light-gray: #e8e6e2;
+  --mid-gray:   #ccc;
+  --error:      #dc2626;
+  --radius-card: 4px;
+  --font-heading: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'Jost', sans-serif;
+  font-family: var(--font-body);
+  color: var(--black);
+}
+
+.register-shared-main button,
+.register-shared-main input {
+  font-family: 'Jost', sans-serif;
+}
+
+/* â”€â”€â”€ Main wrapper â”€â”€â”€ */
+.register-shared-main {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 200px);
+  padding: 36px 20px 40px;
+  overflow: hidden;
+}
+
+/* â”€â”€â”€ Shoe background â”€â”€â”€ */
+.register-shared-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.register-shared-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(.9) saturate(.75);
+}
+
+.register-shared-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(245, 243, 240, .83);
+}
+
+/* â”€â”€â”€ Card â”€â”€â”€ */
+.register-shared-card {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 480px;
+  background: #fff;
+  border-radius: var(--radius-card);
+  box-shadow: 0 8px 40px rgba(0,0,0,.12);
+  padding: 34px 40px 28px;
+  animation: rcardIn .38s ease both;
+}
+
+@keyframes rcardIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* â”€â”€â”€ Card heading â”€â”€â”€ */
+.register-shared-card-head {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.register-shared-card-head h1 {
+  margin: 0 0 6px;
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--black);
+}
+
+.register-shared-card-head h1 span { color: var(--orange); }
+
+.register-shared-card-head p {
+  margin: 0;
+  color: var(--gray);
+  font-size: 12px;
+  letter-spacing: .02em;
+}
+
+/* â”€â”€â”€ Field â”€â”€â”€ */
+.register-shared-field { margin-bottom: 13px; }
+
+.register-shared-field label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--black);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .05em;
+}
+
+/* â”€â”€â”€ Input wrapper â”€â”€â”€ */
+.register-shared-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.register-shared-input-icon {
+  position: absolute;
+  left: 13px;
+  z-index: 1;
+  width: 15px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.register-shared-input-icon svg {
+  width: 14px;
+  height: 14px;
+  stroke: var(--mid-gray);
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.register-shared-input-wrap input {
+  width: 100%;
+  height: 44px;
+  border: 1px solid var(--light-gray);
+  border-radius: var(--radius-card);
+  background: #fff;
+  color: var(--black);
+  font-size: 13px;
+  padding: 0 42px 0 40px;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+}
+
+.register-shared-input-wrap input::placeholder { color: #bbb; }
+
+.register-shared-input-wrap input:focus {
+  border-color: var(--black);
+  box-shadow: 0 0 0 3px rgba(17,17,17,.06);
+}
+
+/* â”€â”€â”€ Eye toggle (trailing) â”€â”€â”€ */
+.register-shared-input-trailing {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.register-shared-input-trailing svg {
+  width: 14px;
+  height: 14px;
+  stroke: var(--mid-gray);
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
+
+.register-shared-input-trailing:hover svg { stroke: var(--black); }
+
+/* â”€â”€â”€ Terms checkbox row â”€â”€â”€ */
+.register-shared-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin: 6px 0 16px;
+  color: var(--black);
+  font-size: 12px;
+  line-height: 1.55;
+  cursor: pointer;
+  user-select: none;
+}
+
+.register-shared-checkbox input[type="checkbox"] {
+  width: 14px;
+  height: 14px;
+  margin-top: 2px;
+  accent-color: var(--black);
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+/* â”€â”€â”€ Orange inline link â”€â”€â”€ */
+.register-shared-link {
+  border: none;
+  background: none;
+  padding: 0;
+  color: var(--orange);
+  font-size: inherit;
+  font-family: 'Jost', sans-serif;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  transition: text-decoration-color .2s;
+}
+
+.register-shared-link:hover { text-decoration-color: var(--orange); }
+
+/* â”€â”€â”€ Primary button â”€â”€â”€ */
+.register-shared-primary-btn {
+  width: 100%;
+  height: 48px;
+  border: none;
+  border-radius: var(--radius-card);
+  background: var(--black);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  font-family: 'Jost', sans-serif;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s;
+}
+
+.register-shared-primary-btn:hover { background: #2a2a2a; }
+.register-shared-primary-btn:active { background: #000; }
+
+/* â”€â”€â”€ Inline error â”€â”€â”€ */
+.register-shared-inline-message {
+  min-height: 12px;
+  margin: 8px 0 0;
+  color: var(--error);
+  font-size: 11px;
+  text-align: center;
+}
+
+/* â”€â”€â”€ OR divider â”€â”€â”€ */
+.register-shared-divider {
+  text-align: center;
+  position: relative;
+  margin: 16px 0;
+}
+
+.register-shared-divider::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--light-gray);
+}
+
+.register-shared-divider span {
+  position: relative;
+  background: #fff;
+  color: var(--gray);
+  font-size: 10px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  padding: 0 12px;
+}
+
+/* â”€â”€â”€ Google button â”€â”€â”€ */
+.register-shared-google-btn {
+  width: 100%;
+  height: 46px;
+  border: 1.5px solid #e0e0e0;
+  border-radius: var(--radius-card);
+  background: #fff;
+  color: #1f1f1f;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  font-family: 'Jost', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: border-color .2s, background .2s;
+}
+
+.register-shared-google-btn:hover {
+  border-color: var(--black);
+  background: #f9f9f9;
+}
+
+/* Google G colour wheel */
+.register-shared-google-mark {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: conic-gradient(
+    #ea4335 0 25%,
+    #fbbc05 25% 50%,
+    #34a853 50% 75%,
+    #4285f4 75% 100%
+  );
+  flex-shrink: 0;
+}
+
+/* â”€â”€â”€ Footer row â”€â”€â”€ */
+.register-shared-footer-row {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--black);
+}
+
+.register-shared-footer-row button {
+  border: none;
+  background: none;
+  color: var(--orange);
+  font-weight: 600;
+  font-size: 13px;
+  font-family: 'Jost', sans-serif;
+  cursor: pointer;
+  margin-left: 4px;
+  transition: opacity .2s;
+}
+
+.register-shared-footer-row button:hover { opacity: .75; }
+
+/* â”€â”€â”€ Responsive â”€â”€â”€ */
+@media (max-width: 768px) {
+  .register-shared-main { min-height: auto; padding: 28px 16px 36px; }
+  .register-shared-card { max-width: 100%; padding: 28px 20px 24px; }
+}

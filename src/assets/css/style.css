@@ -1,0 +1,102 @@
+﻿/* GLASS NAVBAR */
+
+.glass-navbar {
+  background: rgba(255,255,255,0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+
+  z-index: 999;
+}
+
+/* LOGO */
+
+.logo-text {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #00a8cc !important;
+}
+
+/* NAV LINKS */
+
+.nav-link {
+  color: #111 !important;
+  font-size: 14px;
+  font-weight: 500;
+  position: relative;
+}
+
+/* Hover underline animation */
+
+.nav-hover::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: black;
+  left: 0;
+  bottom: -4px;
+  transition: 0.3s;
+}
+
+.nav-hover:hover::after {
+  width: 100%;
+}
+
+/* Glass Buttons */
+
+.btn-glass {
+  border: 1px solid rgba(0,0,0,0.1);
+  background: rgba(255,255,255,0.5);
+  backdrop-filter: blur(6px);
+
+  padding: 6px 14px;
+  border-radius: 30px;
+
+  font-size: 13px;
+
+  transition: 0.3s;
+}
+
+.btn-glass:hover {
+  background: black;
+  color: white;
+}
+
+/* Dark Button */
+
+.btn-glass-dark {
+  background: black;
+  color: white;
+
+  padding: 6px 16px;
+  border-radius: 30px;
+
+  font-size: 13px;
+
+  transition: 0.3s;
+}
+
+.btn-glass-dark:hover {
+  background: #333;
+}
+
+/* Icon Button */
+
+.icon-btn {
+  border: none;
+  background: transparent;
+  transition: 0.3s;
+}
+
+.icon-btn:hover {
+  transform: scale(1.2);
+}
+
+/* Fix hero spacing below navbar */
+
+body {
+  padding-top: 90px;
+}
